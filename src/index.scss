@@ -1,0 +1,165 @@
+@import './assets/variables';
+
+*,
+*:before,
+*:after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+
+html {
+  font-size: 10px;
+  font-family: $font;
+}
+
+body {
+  overflow: hidden;
+  background-color: $bg;
+  scroll-behavior: smooth;
+}
+
+button {
+  background: #353333;
+  box-shadow: 5px 5px 8px #000000, -4px -4px 8px #808383;
+  transition: all 0.1s ease;
+  &:active {
+    transform: translateY(-10%);
+  }
+  &:focus {
+    outline: none;
+  }
+}
+
+.App {
+  width: 100%;
+  height: 100vh;
+  // display: grid;
+  // grid-template-columns: 1fr 3fr 1fr;
+  // align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  .left {
+    .icon-picker {
+      color: $white;
+      max-width: 26rem;
+      .title {
+        font-size: $fontSizeM;
+        text-align: center;
+        width: 100%;
+        line-height: 1.7;
+        margin-bottom: 1rem;
+      }
+      .main {
+        display: grid;
+        gap: 2rem;
+        grid-template-columns: repeat(4, 1fr);
+        .icon {
+          cursor: pointer;
+          font-size: 3rem;
+          padding: 0.4rem;
+          border-radius: 50%;
+          background-color: #ddd;
+          transition: all 0.3s ease;
+          &:hover {
+            background-color: #999;
+            transform: scale(1.2);
+          }
+        }
+        .icon--active {
+          cursor: not-allowed;
+          background-color: #888;
+        }
+      }
+    }
+  }
+  .mid {
+    @include flex($dir: column);
+    .player {
+      form {
+        @include flex($dir: column);
+        button {
+          margin-top: 2rem;
+          border-radius: 25px;
+          color: $white;
+          font-size: $fontSizeL;
+          padding: 0.8rem 2rem;
+          @media screen and(max-width: 900px) {
+            font-size: $fontSizeM;
+            padding: 0.6rem 2rem;
+          }
+        }
+      }
+    }
+    .declare {
+      font-size: $fontSizeL;
+      font-weight: 600;
+      color: $white;
+      margin-bottom: 2rem;
+      text-transform: uppercase;
+      text-align: center;
+      @media screen and(max-width: 900px) {
+        font-weight: 400;
+        font-size: $fontSizeM;
+      }
+      span {
+        font-weight: 900;
+        font-size: 3rem;
+        @media screen and(max-width: 900px) {
+          font-weight: 400;
+          font-size: $fontSizeM;
+        }
+      }
+    }
+    .btn {
+      border-radius: 20px;
+      font-size: $fontSizeL;
+      padding: 1rem 2.5rem;
+      margin-top: 2rem;
+      border: none;
+      outline: none;
+      cursor: pointer;
+      color: $white;
+      text-transform: uppercase;
+      font-weight: 600;
+      @media screen and(max-width: 900px) {
+        font-size: $fontSizeM;
+      }
+      &:hover {
+        opacity: 0.8;
+        transform: scale(1.1);
+      }
+    }
+    .turn {
+      font-size: $fontSizeL;
+      color: $white;
+      text-align: center;
+    }
+    .Board {
+      @include flex($dir: column);
+
+      &-row {
+        @include flex();
+      }
+    }
+    .disabled {
+      .Board-row {
+        .Square {
+          cursor: not-allowed;
+        }
+      }
+    }
+  }
+  .right {
+    margin-right: 1rem;
+    color: $white;
+    .header {
+      font-size: $fontSizeL;
+    }
+    .body {
+    }
+  }
+}

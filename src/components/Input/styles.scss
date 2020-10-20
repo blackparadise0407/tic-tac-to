@@ -1,0 +1,32 @@
+@import "../../assets/variables";
+
+.Input {
+  @include flex($dir: column);
+  & > * + * {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+  label {
+    font-size: $fontSizeL;
+    color: $white;
+  }
+  input {
+    text-align: center;
+    font-family: $font;
+    font-size: $fontSizeL;
+    color: $white;
+    border-radius: 4rem;
+    border: none;
+    padding: 0.8rem 1.8rem;
+    @media screen and(max-width: 900px) {
+      padding: 0.4rem 1.4rem;
+      font-size: $fontSizeM;
+    }
+    &:focus {
+      border: none;
+      outline: none;
+    }
+    background: rgb(48, 47, 47);
+    box-shadow: inset 8px 8px 8px #0e0e0e, inset -3px -3px 8px #666666;
+  }
+}

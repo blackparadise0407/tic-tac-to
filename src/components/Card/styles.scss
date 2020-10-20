@@ -1,0 +1,50 @@
+@import '../../assets/variables';
+
+.Card {
+  max-width: 24rem;
+  cursor: pointer;
+  color: $black;
+  font-size: $fontSizeM;
+  padding: 1rem 1rem;
+  background-color: $white;
+  border-radius: 2px;
+  margin: 0.5rem 2rem;
+  transition: all 0.3s ease;
+  transform: perspective(1000px);
+  transform-style: preserve-3d;
+  text-align: center;
+  &:hover {
+    color: $white;
+    opacity: 0.9;
+    margin: 2.5rem 2rem;
+  }
+  &:before {
+    content: '';
+    position: absolute;
+    top: -5px;
+    bottom: -5px;
+    right: -5px;
+    left: -5px;
+    z-index: -1;
+    background: linear-gradient(90deg, #03a9f4, #f441a4, #ffeb3b, #03a9f4);
+    background-size: 400%;
+    border-radius: 40px;
+    filter: blur(20px);
+    opacity: 0;
+    transition: 0.5s;
+  }
+  &:hover:before {
+    filter: blur(20px);
+    opacity: 1;
+    animation: animate 8s linear infinite;
+  }
+}
+
+@keyframes animate {
+  0% {
+    background-position: 0%;
+  }
+  100% {
+    background-position: 400%;
+  }
+}

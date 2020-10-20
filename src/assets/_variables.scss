@@ -1,0 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;900&display=swap');
+
+$font: 'Poppins', sans-serif;
+
+$fontSizeM: 1.6rem;
+$fontSizeL: 2rem;
+
+$bg: #181818;
+$black: #202020;
+$white: #ffffff;
+$border: rgb(131, 124, 109);
+
+@mixin flex($dir: row, $justify: center, $align: center) {
+  display: flex;
+  flex-direction: $dir;
+  justify-content: $justify;
+  align-items: $align;
+}
